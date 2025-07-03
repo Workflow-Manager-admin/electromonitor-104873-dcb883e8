@@ -1,7 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from . import database, models
+
 app = FastAPI()
+
+# The following lines ensure the SQLAlchemy models are registered for migration/discovery tools
+_ = (models, database.Base)
 
 app.add_middleware(
     CORSMiddleware,
@@ -13,4 +18,5 @@ app.add_middleware(
 
 @app.get("/")
 def health_check():
+    """PUBLIC_INTERFACE: Simple health check endpoint."""
     return {"message": "Healthy"}
