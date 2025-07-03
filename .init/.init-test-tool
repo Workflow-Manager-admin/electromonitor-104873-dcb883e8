@@ -1,0 +1,4 @@
+{
+    "command": "pytest",
+    "working_directory": "/home/kavia/workspace/code-generation/electromonitor-104873-dcb883e8/eb_backend"
+}
